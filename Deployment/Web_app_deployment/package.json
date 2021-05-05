@@ -1,0 +1,21 @@
+{
+  "name": "elon_mask",
+  "version": "1.0.0",
+  "engines": {
+    "node": "15.12.0"
+  },
+  "private": true,
+  "description": "'CNN model for mask detection, DAP project'",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "debug": "^2.6.9",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "http": "^0.0.1-security"
+  }
+}
