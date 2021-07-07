@@ -66,7 +66,7 @@ async function predict() {
             ctx.fillText(text,start[0]+5,start[1]+20);
         }
     }
-    setTimeout(predict, 300);
+    setTimeout(predict, 100);
 }
 
 async function web_main() {
