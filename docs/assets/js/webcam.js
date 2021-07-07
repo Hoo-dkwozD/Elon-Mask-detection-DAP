@@ -49,6 +49,7 @@ async function predict() {
 
             //Perform the detection with your layer model:
             var pred = await fm_model.predict(tf4d_);
+            console.log(pred);
 
             const predVal = pred.argMax(1).dataSync()[0];
 
