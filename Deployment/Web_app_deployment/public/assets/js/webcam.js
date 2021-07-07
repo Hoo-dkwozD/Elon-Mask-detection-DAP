@@ -1,6 +1,7 @@
 let dict = {
     0: "with mask",
-    1: "without mask"};
+    1: "without mask"
+};
 
 //Holds the model object
 let model;
@@ -29,7 +30,7 @@ async function predict() {
 
     //Predict landmarks in hand (3D coordinates) in the frame of a video
     const predictions = await model.estimateFaces(video, returnTensors);
-    if(predictions.length > 0) {;
+    if(predictions.length > 0) {
         for (let i = 0; i < predictions.length; i++) {
             var start = predictions[i].topLeft;
             var end = predictions[i].bottomRight;
@@ -48,28 +49,25 @@ async function predict() {
 
             //Perform the detection with your layer model:
             var pred = await fm_model.predict(tf4d_);
-                    
+
             const predVal = pred.argMax(1).dataSync()[0];
 
             new_img.dispose();
             smallImg.dispose();
             resized.dispose();
-                    
+
             ctx.beginPath();
             ctx.strokeStyle="white";
             ctx.lineWidth = "3";
             ctx.rect(start[0], start[1],size[0], size[1]);
             ctx.stroke();
             var text = dict[predVal];
-            ctx.fillStyle = "white"
+            ctx.fillStyle = "white";
             ctx.fillText(text,start[0]+5,start[1]+20);
-
-
         }
     }
     setTimeout(predict, 300);
 }
-    
 
 async function web_main() {
     //Load the Handpose model
@@ -103,7 +101,7 @@ async function web_main() {
         // ctx.translate(canvas.width, 0);
         //Flip the context horizontally
         // ctx.scale(-1, 1);
-  
+
         //Start the prediction indefinitely on the video stream
         setTimeout(predict, 300);
     };   
