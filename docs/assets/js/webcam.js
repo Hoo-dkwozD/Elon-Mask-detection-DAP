@@ -57,12 +57,20 @@ async function predict() {
             resized.dispose();
 
             ctx.beginPath();
-            ctx.strokeStyle="white";
+            if (predVal == 0) {
+                ctx.strokeStyle="green";
+            } else {
+                ctx.strokeStyle="red";
+            }
             ctx.lineWidth = "3";
             ctx.rect(start[0], start[1],size[0], size[1]);
             ctx.stroke();
             var text = dict[predVal];
-            ctx.fillStyle = "white";
+            if (predVal == 0) {
+                ctx.fillStyle = "green";
+            } else {
+                ctx.fillStyle = "red";
+            }
             ctx.fillText(text,start[0]+5,start[1]+20);
         }
     }
